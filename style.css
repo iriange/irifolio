@@ -1,0 +1,293 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all .3s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.header {
+    width: 100%;
+    padding: 20px 60px;
+}
+.header.scroll {
+    position: sticky;
+    top:0;
+    padding: 10px;
+    background-color: black;
+    z-index: 999;
+    color: #eee;
+    box-shadow: 0px .3px 5px #eeeeee44;
+}
+.header.scroll .logo, .header.scroll a{
+    color: #eee;
+}
+
+.header a{
+    color: black;
+}
+.header a:hover{
+    text-decoration: underline;
+}
+
+.header nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.header nav ul{
+    display: flex;
+}
+
+.header nav .logo{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.header .logoLink:hover{
+    text-decoration: none;
+}
+
+.header nav .logo span{
+    background-color: #2e2e2e;
+    color: #eee;
+}
+.header.scroll nav .logo span{
+    background-color: #eee;
+    color: #2e2e2e;
+}
+.header nav ul li {
+    padding: 6px;
+}
+main section{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    background-color: black;
+    color: #eee;
+}
+
+main section p{
+    column-width: auto;
+    columns: 2;
+}
+
+main section p::selection{
+   background-color: black;
+   color: #eee;
+}
+
+section#mapassion{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #eee;
+    color: black;
+    justify-content: flex-end;
+}
+section#apropos{
+    padding-right: 0;
+}
+
+section .left{
+    flex: 1;
+    padding: 60px;
+    justify-content: center;
+    flex-direction: column;
+}
+section .right{
+    flex: .5;
+    justify-content: center;
+}
+
+.box-container{
+    display: flex;
+    justify-items: space-between;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+#apropos .box-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-container .section-title-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+.box-container .section-title-big{
+    position: absolute;
+    font-size: 90px;
+    font-weight: 900;
+    color: #eee;
+    top: -90px;
+    opacity: .5;
+}
+.box-container .section-title-big::before{
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 50px;
+    height: 2px;
+    background-color: #eee;
+}
+.box-container .section-title-container.passion .section-title-big::after{
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 60%;
+    width: 50px;
+    height: 2px;
+    background-color: #2e2e2e;
+}
+
+.box-container .section-title-container.passion .section-title-big{
+    color: black;
+    opacity: .5;
+}
+
+.resume-popup-btn{
+    margin-top: 20px;
+}
+.resume-popup-btn button{
+    padding: clamp(5px, 20px, 1.5em);
+    border: none;
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(.5em, 1.5rem, 2em);
+    cursor: pointer;
+}
+
+.resume-popup-container{
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.resume-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000e3;
+    z-index: 1;
+}
+.resume-popup-container.active{
+    display: flex;
+}
+
+.resume-popup-container h3{
+    padding: 10px 0;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #2e2e2e;
+}
+
+.resume-content{
+    max-width: 500px;
+    min-height: 300px;
+    background: #eee;
+    padding: 60px;
+    border-radius: 6px;
+    z-index: 2;
+}
+.resume-content-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.resume-content-text span{
+   border-top: 1px solid #969595;
+   padding-top: 10px;
+}
+.resume-content-text span i{
+  margin-right: 5px;
+}
+.resume-content button{
+    background: black;
+    padding: 10px;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+.resume-content button:hover{
+    opacity: .9;
+}
+
+@media (max-width:766px) {
+
+    .header {
+        padding: 20px;
+    }
+    .header.scroll {
+        position: static;
+    }
+    .header a {
+        color: black;
+        font-size: .8rem;
+        font-weight: 800;
+    }
+    main section{
+       flex-direction: column;
+       padding-top: 50px;
+    }
+    main section p{
+        column-width: auto;
+        columns: 1;
+    }
+    section .left {
+        padding: 40px;
+    }
+    section#mapassion {
+        display: flex;
+        flex-direction: column;
+    }
+    .box-container .section-title-big{
+        font-size: 50px;
+        top: -90px;
+    }
+
+    .box-container .section-title-container.passion .section-title-big::after{
+       display: none;
+    }
+    .box-container .section-title-big::before{
+        display: none;
+    }
+}
